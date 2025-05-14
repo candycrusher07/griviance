@@ -9,14 +9,34 @@ SENDER_EMAIL = "urghbabe1810@gmail.com"
 SENDER_PASSWORD = "xfbw rrkz svmm zcqj"
 RECEIVER_EMAIL = "aamirtauhid07@gmail.com"
 
-# Login system
-users = {
-    "sadiyah": "pandu123",
-    "admin": "adminpass"
-}
 
-if 'logged_in' not in st.session_state:
-    st.session_state.logged_in = False
+
+# Set page title
+st.set_page_config(page_title="Login Page", layout="centered")
+
+# Hardcoded credentials
+correct_username = "sadiyah"
+correct_password = "pandu123"
+
+def main():
+    st.title("Login Portal")
+
+    # Input fields
+    username = st.text_input("Enter Username:")
+    password = st.text_input("Enter Password:", type="password")
+
+    # Login button
+    if st.button("Login"):
+        if username == "sadiyah" and password == "pandu123":
+            st.success("Logged in successfully 💗")
+            st.write("Welcome, sadiyah! You are now logged in.")
+    
+else:
+    st.error("Invalid credentials 💔")
+
+if __name__ == "__main__":
+    main()
+
 
 # Email sending function
 def send_email(subject, body):
@@ -63,12 +83,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# Login screen
-if username in sadiyah and admin[username] == password:
-    st.session_state.logged_in = True
-    st.success("Logged in successfully 💗")
-else:
-    st.error("Invalid credentials 💔")
+
 
 
 # Grievance form
