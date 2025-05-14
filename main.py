@@ -11,7 +11,8 @@ RECEIVER_EMAIL = "aamirtauhid07@gmail.com"
 
 # Login system
 users = {
-    "sadiyah": "pandu123"
+    "sadiyah": "pandu123",
+    "admin": "adminpass"
 }
 
 if 'logged_in' not in st.session_state:
