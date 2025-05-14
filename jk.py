@@ -105,7 +105,7 @@ def login_page():
         if username == CORRECT_USERNAME and password == CORRECT_PASSWORD:
             st.session_state.logged_in = True
             st.success("Login successful! Welcome, sadiyah!")
-            st.experimental_rerun()
+        
         else:
             st.error("Invalid username or password. Please try again.")
 
@@ -144,7 +144,9 @@ def grievance_form():
 # MAIN APP LOGIC
 # =============================
 def main():
-    if st.session_state.logged_in:
+    if
+    st.session_state.get("logged_in",
+     False):                    
         grievance_form()
     else:
         login_page()
