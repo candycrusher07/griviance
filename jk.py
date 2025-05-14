@@ -74,9 +74,9 @@ label, .css-1cpxqw2, .css-1d391kg {
 
 /* Text input background and border styling */
 .stTextInput > div > div > input {
-    background-color: #fff8e1 !important;  /* Buttery yellow */
-    color: #5e3700 !important;             /* Deep brown text */
-    border: 2px solid #ffd54f !important;  /* Golden border */
+    background-color: #fce4ec !important;  /* Buttery yellow */
+    color: #880e4f !important;             /* Deep brown text */
+    border: 2px solid #f06292 !important;  /* Golden border */
     border-radius: 10px;
     font-family: 'Georgia', serif;
 }
