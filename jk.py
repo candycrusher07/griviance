@@ -63,6 +63,40 @@ st.markdown("""
         color: #4a0033 !important;
         font-family: 'Georgia', serif !important;
     }
+    
+    /* Global label styling - affects all form labels */
+label, .css-1cpxqw2, .css-1d391kg {
+    color: #b30059 !important;        /* Romantic deep rose color */
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+}
+
+/* Text input background and border styling */
+.stTextInput > div > div > input {
+    background-color: #fff8e1 !important;  /* Buttery yellow */
+    color: #5e3700 !important;             /* Deep brown text */
+    border: 2px solid #ffd54f !important;  /* Golden border */
+    border-radius: 10px;
+    font-family: 'Georgia', serif;
+}
+
+/* Text area customization (for "What's bothering you?") */
+.stTextArea > div > textarea {
+    background-color: #fce4ec !important;  /* Soft pink */
+    color: #880e4f !important;             /* Deep rose text */
+    border: 2px solid #f06292 !important;  /* Pink border */
+    border-radius: 10px;
+    font-family: 'Georgia', serif;
+}
+
+/* Select boxes (for Mood, Severity) */
+.stSelectbox > div > div {
+    background-color: #f3e5f5 !important;  /* Lavender */
+    color: #4a148c !important;             /* Deep purple text */
+    border: 2px solid #ba68c8 !important;
+    border-radius: 10px;
+    font-family: 'Georgia', serif;
+
 
     /* Login input boxes (username & password) */
     .stTextInput > div > div > input {
