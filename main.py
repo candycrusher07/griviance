@@ -10,32 +10,45 @@ SENDER_PASSWORD = "xfbw rrkz svmm zcqj"
 RECEIVER_EMAIL = "aamirtauhid07@gmail.com"
 
 
-# Set page title
-st.set_page_config(page_title="Login Page", layout="centered")
+# Set page tit
+
+# Set page config
+st.set_page_config(page_title="Login Portal", layout="centered")
 
 # Hardcoded credentials
 correct_username = "sadiyah"
 correct_password = "pandu123"
 
-def main():
+# Initialize session state
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+
+def login():
     st.title("Login Portal")
 
-    # Input fields
     username = st.text_input("Enter Username:")
     password = st.text_input("Enter Password:", type="password")
 
-    # Login button
     if st.button("Login"):
         if username == correct_username and password == correct_password:
+            st.session_state.logged_in = True
             st.success("Login successful!")
-            st.write("Welcome, sadiyah! You are now logged in.")
         else:
-            st.error("Invalid username or password. Please try again.")
+            st.error("Invalid username or password.")
 
-if __name__ == "__main__":
-    main()
+def home():
+    st.title("Welcome!")
+    st.write("You are successfully logged in as **sadiyah**.")
 
+    if st.button("Logout"):
+        st.session_state.logged_in = False
+        st.experimental_rerun()
 
+# App flow
+if not st.session_state.logged_in:
+    login()
+else:
+    home()
 
 # Email sending function
 def send_email(subject, body):
