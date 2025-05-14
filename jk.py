@@ -57,47 +57,72 @@ st.markdown("""
         background-color: #fff0f5;
     }
 
-    /* Text Area for grievance form */
-    .stTextArea > div > textarea {
-        background-color: #fff8fc !important;
-        color: #4a0033 !important;
-        font-family: 'Georgia', serif !important;
+    /* Main Title */
+    h1 {
+        color: #d63384;
+        font-family: 'Georgia', serif;
+        font-size: 40px;
+        text-align: center;
     }
-    
-   <style>
-/* Global label styling - affects all form labels */
-label, .css-1cpxqw2, .css-1d391kg {
-    color: #b30059 !important;        /* Romantic deep rose color */
-    font-weight: bold;
-    font-family: 'Georgia', serif;
-}
 
-/* Text input background and border styling */
-.stTextInput > div > div > input {
-    background-color: #fce4ec !important;  /* Buttery yellow */
-    color: #880e4f !important;             /* Deep brown text */
-    border: 2px solid #f06292 !important;  /* Golden border */
-    border-radius: 10px;
-    font-family: 'Georgia', serif;
-}
+    /* Subtitles / Labels */
+    label, .stTextInput label, .stTextArea label, .stSelectbox label, .stSlider label {
+        color: #800040 !important;
+        font-family: 'Georgia', serif;
+        font-size: 18px;
+    }
 
-/* Text area customization (for "What's bothering you?") */
-st.text_area > div > textarea {
-    background-color: #fce4ec !important;  /* Soft pink */
-    color: #880e4f !important;             /* Deep rose text */
-    border: 2px solid #f06292 !important;  /* Pink border */
-    border-radius: 10px;
-    font-family: 'Georgia', serif;
-}
+    /* Text input and Text area boxes */
+    input[type="text"], input[type="password"], textarea {
+        background-color: #ffe6f0 !important;
+        color: #4d0039 !important;
+        border: 1px solid #cc3366 !important;
+        border-radius: 8px;
+        font-family: 'Georgia', serif;
+        font-size: 16px;
+    }
 
-/* Select boxes (for Mood, Severity) */
-.stSelectbox > div > div {
-    background-color: #f3e5f5 !important;  /* Lavender */
-    color: #4a148c !important;             /* Deep purple text */
-    border: 2px solid #ba68c8 !important;
-    border-radius: 10px;
-    font-family: 'Georgia', serif;
-}
+    /* Selectboxes */
+    .stSelectbox > div {
+        background-color: #ffe6f0 !important;
+        color: #4d0039 !important;
+    }
+
+    /* Sliders */
+    .stSlider {
+        color: #cc3366;
+    }
+
+    /* Submit Button */
+    .stButton > button {
+        background-color: #ff66a3 !important;
+        color: white !important;
+        font-family: 'Georgia', serif;
+        font-size: 16px;
+        border-radius: 10px;
+        padding: 8px 24px;
+        margin-top: 10px;
+    }
+
+    /* Confirmation Dialog Box */
+    .confirmation-box {
+        background-color: #ffcce0;
+        padding: 20px;
+        border-radius: 12px;
+        border: 2px solid #ff66a3;
+        text-align: center;
+        margin-top: 20px;
+        color: #800040;
+        font-family: 'Georgia', serif;
+    }
+
+    /* Login Box Success Message */
+    .stAlert {
+        background-color: #e6f2ff;
+        border-left: 5px solid #3399ff;
+        color: #003366;
+        font-family: 'Georgia', serif;
+    }
 
 
 
