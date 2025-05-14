@@ -17,12 +17,11 @@ CORRECT_PASSWORD = "pandu123"
 # =============================
 # Email Configuration
 # =============================
-SENDER_EMAIL = "urghbabe1810@gmail.com"  # Replace with your email
+SENDER_EMAIL = "urghbabe1810@gmail.com"
 SENDER_PASSWORD = "xfbw rrkz svrmm zcqj"  # App password
-RECEIVER_EMAIL = "aamirtauhid07@example.com"  # Replace with actual receiver email
+RECEIVER_EMAIL = "aamirtauhid07@example.com"
 
 def send_grievance_email(title, grievance, mood, severity, solution):
-    """Send email when grievance is submitted."""
     subject = f"Grievance Submitted: {title}"
     body = f"""
     💌 A new grievance has been submitted:
@@ -33,7 +32,6 @@ def send_grievance_email(title, grievance, mood, severity, solution):
     Severity (1-10): {severity}
     Suggested Solution: {solution}
     """
-
     message = MIMEMultipart()
     message["From"] = SENDER_EMAIL
     message["To"] = RECEIVER_EMAIL
@@ -49,106 +47,78 @@ def send_grievance_email(title, grievance, mood, severity, solution):
         st.warning(f"Failed to send email: {e}")
 
 # =============================
-# Custom CSS (Contrast & Style)
+# Custom CSS
 # =============================
 st.markdown("""
     <style>
     .stApp {
         background-color: #fff0f5;
     }
-    /* Text Area for grievance form */
-    .stTextArea > div > textarea {
-        background-color: #fff8fc !important;
-        color: #4a0033 !important;
-        font-family: 'Georgia', serif !important;
 
-  
-    /* Button styling */
-    .stButton>button {
-        background-color: #ff66a3 !important;
-        color: white;
-        border-radius: 12px;
-        padding: 10px 20px;
+    /* Main heading */
+    h1, h2, h3, h4 {
+        color: #800040 !important;
         font-family: 'Georgia', serif;
-        font-weight: bold;
+    }
 
-
-    /* Login input boxes (username & password) */
+    /* Text input */
     .stTextInput > div > div > input {
         background-color: #ffe6f0 !important;
         color: #800040 !important;
         font-family: 'Georgia', serif !important;
-        border-radius: 8px;
-    }
-
-    /* Buttons */
-    .stButton>button {
-        background-color: #ff3385 !important;
-        color: white;
-        border-radius: 12px;
-        padding: 10px 20px;
-        font-family: 'Georgia', serif;
-        font-weight: bold;
-    }
-
-    /* Confirmation box styling */
-    .confirmation-box {
-        background-color: #d1ffe6;
-        padding: 20px;
+        border: 2px solid #ff99cc;
         border-radius: 10px;
-        border: 2px solid #00cc88;
-        text-align: center;
-        margin-top: 20px;
-        color: #006644;
     }
 
-    /* Input & Text Area */
-    .stTextInput > div > div > input,
+    /* Text area */
     .stTextArea > div > textarea {
-        background-color: #ffe6f0 !important;
-        color: #660033 !important;
+        background-color: #fff8fc !important;
+        color: #4a0033 !important;
         font-family: 'Georgia', serif;
         border: 2px solid #ff99cc;
         border-radius: 10px;
     }
 
-    /* Select Box (Dropdown) */
-    .stSelectbox > div > div,
-    .stSelectbox label {
-        background-color: #fff0f5 !important;
+    /* Selectbox */
+    .stSelectbox > div > div {
+        background-color: #ffe6f0 !important;
         color: #800040 !important;
-        font-family: 'Georgia', serif;
+        font-family: 'Georgia', serif !important;
+        border-radius: 10px;
+        padding: 5px;
     }
 
     /* Slider */
     .stSlider > div {
         background-color: #ffd9ec !important;
-        padding: 10px;
         border-radius: 10px;
+        padding: 10px;
     }
 
-    /* Submit and Logout Buttons */
-    .stButton > button {
-        background-color: #ff66a3 !important;
+    /* Buttons */
+    .stButton>button {
+        background-color: #ff3385 !important;
         color: white !important;
         border-radius: 12px !important;
-        font-weight: bold;
+        padding: 10px 20px;
         font-family: 'Georgia', serif;
+        font-weight: bold;
+        border: none;
     }
 
-    /* Custom dialog box */
+    /* Confirmation box */
     .confirmation-box {
-        background-color: #ccf5ff; /* CONTRASTING pastel blue */
+        background-color: #ccf5ff;
         color: #00334d;
         padding: 20px;
         border-radius: 10px;
         border: 2px solid #66d9ff;
         text-align: center;
-        margin-top: 20px;
         font-family: 'Georgia', serif;
+        margin-top: 20px;
     }
 
-    /* Streamlit's alert boxes override (success, warning, error) */
+    /* Alert boxes */
     .stAlert {
         background-color: #ffe0ec !important;
         border-left: 5px solid #ff3385 !important;
@@ -157,7 +127,6 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-
 
 # =============================
 # Session Initialization
@@ -183,7 +152,7 @@ def login_page():
 # Grievance Form Page
 # =============================
 def grievance_form():
-    st.title("💌 Express Your Heart")
+    st.title(":love_letter: Express Your Heart")
 
     title = st.text_input("Title")
     grievance = st.text_area("What's bothering you?")
@@ -193,8 +162,8 @@ def grievance_form():
 
     if st.button("Submit Grievance"):
         if title and grievance:
-            st.markdown(f"""
-                <div class="confirmation-box">
+            st.markdown("""
+                <div class='confirmation-box'>
                     <h3>💗 Your grievance has been submitted!</h3>
                     <p>Aamir will respond soon with love and care 💌✨</p>
                 </div>
