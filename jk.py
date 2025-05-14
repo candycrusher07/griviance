@@ -92,6 +92,60 @@ st.markdown("""
         margin-top: 20px;
         color: #006644;
     }
+
+    /* Input & Text Area */
+    .stTextInput > div > div > input,
+    .stTextArea > div > textarea {
+        background-color: #ffe6f0 !important;
+        color: #660033 !important;
+        font-family: 'Georgia', serif;
+        border: 2px solid #ff99cc;
+        border-radius: 10px;
+    }
+
+    /* Select Box (Dropdown) */
+    .stSelectbox > div > div,
+    .stSelectbox label {
+        background-color: #fff0f5 !important;
+        color: #800040 !important;
+        font-family: 'Georgia', serif;
+    }
+
+    /* Slider */
+    .stSlider > div {
+        background-color: #ffd9ec !important;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    /* Submit and Logout Buttons */
+    .stButton > button {
+        background-color: #ff66a3 !important;
+        color: white !important;
+        border-radius: 12px !important;
+        font-weight: bold;
+        font-family: 'Georgia', serif;
+    }
+
+    /* Custom dialog box */
+    .confirmation-box {
+        background-color: #ccf5ff; /* CONTRASTING pastel blue */
+        color: #00334d;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #66d9ff;
+        text-align: center;
+        margin-top: 20px;
+        font-family: 'Georgia', serif;
+    }
+
+    /* Streamlit's alert boxes override (success, warning, error) */
+    .stAlert {
+        background-color: #ffe0ec !important;
+        border-left: 5px solid #ff3385 !important;
+        color: #800040 !important;
+        font-family: 'Georgia', serif;
+    }
     </style>
 """, unsafe_allow_html=True)
 
