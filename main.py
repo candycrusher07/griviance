@@ -64,7 +64,7 @@ st.markdown("""
 
 
 # Login screen
-if username in users and users["sadiyah"] == "pandu123":
+if username in sadiyah and admin[username] == password:
     st.session_state.logged_in = True
     st.success("Logged in successfully 💗")
 else:
