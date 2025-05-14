@@ -10,7 +10,6 @@ SENDER_PASSWORD = "xfbw rrkz svmm zcqj"
 RECEIVER_EMAIL = "aamirtauhid07@gmail.com"
 
 
-
 # Set page title
 st.set_page_config(page_title="Login Page", layout="centered")
 
@@ -26,17 +25,16 @@ def main():
     password = st.text_input("Enter Password:", type="password")
 
     # Login button
-   if st.button("Login"):
-        if username == "sadiyah" and password == "pandu123":
+    if st.button("Login"):
+        if username == correct_username and password == correct_password:
             st.success("Login successful!")
             st.write("Welcome, sadiyah! You are now logged in.")
-            # Add your main application logic below here
         else:
             st.error("Invalid username or password. Please try again.")
-    st.error("Invalid credentials 💔")
 
 if __name__ == "__main__":
     main()
+
 
 
 # Email sending function
