@@ -119,7 +119,9 @@ def grievance_form():
     title = st.text_input("Title")
     grievance = st.text_area("What's bothering you?")
     mood = st.selectbox("Mood", ["Happy 😊", "Sad 😢", "Angry 😡", "Disappointed 😞", "Confused 🤔"])
-    severity_solutions = st.text_area("Severity (scale 1-10) & Suggested Solutions")
+    severity = st.slider("How serious is it?", 1, 10)
+    solutions = st.selectbox("Chocolates", "Chicken Strips", "Corner House", "Mcd", "WhiteHouse")
+
     
     if st.button("Submit Grievance"):
         if title and grievance and mood and severity_solutions:
