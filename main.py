@@ -13,6 +13,9 @@ RECEIVER_EMAIL = "aamirtauhid07@gmail.com"
 # Set page tit
 
 # Set page config
+import streamlit as st
+
+# Set page config
 st.set_page_config(page_title="Login Portal", layout="centered")
 
 # Hardcoded credentials
@@ -26,29 +29,31 @@ if "logged_in" not in st.session_state:
 def login():
     st.title("Login Portal")
 
-    username = st.text_input("Enter Username:")
-    password = st.text_input("Enter Password:", type="password")
+    username = st.text_input("Enter Username")
+    password = st.text_input("Enter Password", type="password")
 
     if st.button("Login"):
         if username == correct_username and password == correct_password:
             st.session_state.logged_in = True
             st.success("Login successful!")
+            st.experimental_rerun()
         else:
             st.error("Invalid username or password.")
 
 def home():
-    st.title("Welcome!")
-    st.write("You are successfully logged in as **sadiyah**.")
+    st.title("Welcome, sadiyah!")
+    st.write("You are logged in.")
 
     if st.button("Logout"):
         st.session_state.logged_in = False
         st.experimental_rerun()
 
-# App flow
-if not st.session_state.logged_in:
-    login()
-else:
+# Main App Logic
+if st.session_state.logged_in:
     home()
+else:
+    login()
+
 
 # Email sending function
 def send_email(subject, body):
