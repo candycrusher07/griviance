@@ -56,19 +56,23 @@ st.markdown("""
     .stApp {
         background-color: #fff0f5;
     }
-    h1, h3 {
-        color: #cc0066;
-        font-family: 'Georgia', serif;
+
+    /* Text Area for grievance form */
+    .stTextArea > div > textarea {
+        background-color: #fff8fc !important;
+        color: #4a0033 !important;
+        font-family: 'Georgia', serif !important;
     }
-    label, .stTextInput>div>div>input {
-        color: #800040;
-        font-family: 'Georgia', serif;
+
+    /* Login input boxes (username & password) */
+    .stTextInput > div > div > input {
+        background-color: #ffe6f0 !important;
+        color: #800040 !important;
+        font-family: 'Georgia', serif !important;
+        border-radius: 8px;
     }
-    .stTextArea>div>textarea {
-        background-color: #fff8fc;
-        color: #4a0033;
-        font-family: 'Georgia', serif;
-    }
+
+    /* Buttons */
     .stButton>button {
         background-color: #ff3385 !important;
         color: white;
@@ -77,6 +81,8 @@ st.markdown("""
         font-family: 'Georgia', serif;
         font-weight: bold;
     }
+
+    /* Confirmation box styling */
     .confirmation-box {
         background-color: #d1ffe6;
         padding: 20px;
@@ -88,6 +94,7 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 # =============================
 # Session Initialization
