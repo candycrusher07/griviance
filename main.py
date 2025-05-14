@@ -39,36 +39,36 @@ st.markdown("""
     <style>
     .stApp {
         background-color: #ffe6f0;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
     }
-    h1, h3 {
-        color: #cc3366;
+    h1, h3, label, .stTextInput label, .stTextArea label, .stSelectbox label {
+        color: #800040;
+        font-weight: bold;
     }
     .stTextInput > div > div > input,
     .stTextArea > div > textarea,
     .stSelectbox > div,
     .stSlider > div {
         background-color: #fff0f5 !important;
-        color: #b30059 !important;
+        color: #4d0033 !important;
     }
     .stButton > button {
-        background-color: #ff99cc !important;
+        background-color: #ff66a3 !important;
         color: white;
-        border-radius: 10px;
+        border-radius: 12px;
+        font-weight: bold;
     }
     </style>
 """, unsafe_allow_html=True)
 
+
 # Login screen
-def login():
-    st.markdown("<h1>💕 Aamir Grievance Portal - Login</h1>", unsafe_allow_html=True)
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
-    if st.button("Login"):
-        if username in users and users[username] == password:
-            st.session_state.logged_in = True
-            st.experimental_rerun()
-        else:
-            st.error("Invalid credentials 💔")
+if username in users and users[username] == password:
+    st.session_state.logged_in = True
+    st.success("Logged in successfully 💗")
+else:
+    st.error("Invalid credentials 💔")
+
 
 # Grievance form
 def grievance_form():
