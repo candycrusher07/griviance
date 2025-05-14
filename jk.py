@@ -65,37 +65,62 @@ st.markdown("""
     }
     
     /* Global label styling - affects all form labels */
-label, .css-1cpxqw2, .css-1d391kg {
-    color: #b30059 !important;        /* Romantic deep rose color */
-    font-weight: bold;
-    font-family: 'Georgia', serif;
-}
+label
+/* Change label color for all fields (Username, Password, Title, etc.) */
+    label, .css-1cpxqw2, .css-1d391kg, .css-1y0tads {
+        color: #d63384 !important; /* Romantic Rose */
+        font-weight: bold;
+        font-family: 'Georgia', serif;
+    }
 
-/* Text input background and border styling */
-.stTextInput > div > div > input {
-    background-color: #fff8e1 !important;  /* Buttery yellow */
-    color: #5e3700 !important;             /* Deep brown text */
-    border: 2px solid #ffd54f !important;  /* Golden border */
-    border-radius: 10px;
-    font-family: 'Georgia', serif;
-}
+    /* Style for single-line text inputs like Title, Username, Password */
+    input[type="text"], input[type="password"] {
+        background-color: #fff1f9 !important;  /* Light romantic pink */
+        color: #4a0033 !important;            /* Deep maroon text */
+        border: 2px solid #ff69b4 !important;  /* Hot pink border */
+        border-radius: 12px;
+        font-family: 'Georgia', serif;
+        padding: 10px;
+    }
 
-/* Text area customization (for "What's bothering you?") */
-.stTextArea > div > textarea {
-    background-color: #fce4ec !important;  /* Soft pink */
-    color: #880e4f !important;             /* Deep rose text */
-    border: 2px solid #f06292 !important;  /* Pink border */
-    border-radius: 10px;
-    font-family: 'Georgia', serif;
-}
+    /* Style for the textarea ("What's bothering you?") */
+    textarea {
+        background-color: #ffe6f0 !important;  /* Blush pink */
+        color: #800040 !important;             /* Deep rose text */
+        border: 2px solid #ff99cc !important;  /* Soft pink border */
+        border-radius: 12px;
+        font-family: 'Georgia', serif;
+        padding: 10px;
+    }
 
-/* Select boxes (for Mood, Severity) */
-.stSelectbox > div > div {
-    background-color: #f3e5f5 !important;  /* Lavender */
-    color: #4a148c !important;             /* Deep purple text */
-    border: 2px solid #ba68c8 !important;
-    border-radius: 10px;
-    font-family: 'Georgia', serif;
+    /* Style for select boxes */
+    .stSelectbox div[data-baseweb="select"] {
+        background-color: #fce4ec !important;
+        color: #6a004d !important;
+        font-family: 'Georgia', serif;
+        border-radius: 12px;
+        border: 2px solid #f06292 !important;
+    }
+
+    /* Style for the confirmation box */
+    .confirmation-box {
+        background-color: #ffe6ea;
+        padding: 20px;
+        border-radius: 12px;
+        border: 2px solid #ff66a3;
+        color: #800040;
+        font-family: 'Georgia', serif;
+        text-align: center;
+    }
+
+    /* Button styling */
+    .stButton>button {
+        background-color: #ff66a3 !important;
+        color: white;
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-family: 'Georgia', serif;
+        font-weight: bold;
 
 
     /* Login input boxes (username & password) */
