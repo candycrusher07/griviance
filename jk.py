@@ -128,7 +128,7 @@ def grievance_form():
             st.markdown("""
                 <div class="confirmation-box">
                     <h3>Your grievance has been submitted 💖</h3>
-                    <p>Love always finds a way. 💌✨</p>
+                    <p>Aamir will reach out to you soon 💌✨</p>
                 </div>
                 """, unsafe_allow_html=True)
             # Send email notification with the grievance details
