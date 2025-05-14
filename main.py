@@ -26,12 +26,13 @@ def main():
     password = st.text_input("Enter Password:", type="password")
 
     # Login button
-    if st.button("Login"):
+   if st.button("Login"):
         if username == "sadiyah" and password == "pandu123":
-            st.success("Logged in successfully 💗")
+            st.success("Login successful!")
             st.write("Welcome, sadiyah! You are now logged in.")
-    
-else:
+            # Add your main application logic below here
+        else:
+            st.error("Invalid username or password. Please try again.")
     st.error("Invalid credentials 💔")
 
 if __name__ == "__main__":
