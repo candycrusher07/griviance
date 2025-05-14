@@ -4,33 +4,34 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # =============================
-# Configure Streamlit page
+# Page Configuration
 # =============================
 st.set_page_config(page_title="Boyfriend Grievance Portal", layout="centered")
 
 # =============================
-# HARD CODED CREDENTIALS
+# Credentials
 # =============================
 CORRECT_USERNAME = "sadiyah"
 CORRECT_PASSWORD = "pandu123"
 
 # =============================
-# EMAIL CONFIGURATION (Update these values)
+# Email Configuration
 # =============================
-SENDER_EMAIL = "urghbabe1810@gmail.com"      # Replace with your sender email
-SENDER_PASSWORD = "xfbw rrkz svrmm zcqj"               # Replace with your Gmail App Password or SMTP password
-RECEIVER_EMAIL = "aamirtauhid07@example.com"      # Replace with the email where you want to receive notifications
+SENDER_EMAIL = "urghbabe1810@gmail.com"  # Replace with your email
+SENDER_PASSWORD = "xfbw rrkz svrmm zcqj"  # App password
+RECEIVER_EMAIL = "aamirtauhid07@example.com"  # Replace with actual receiver email
 
-def send_grievance_email(title, grievance, mood, severity_solutions):
-    """Send an email notification when a grievance is submitted."""
-    subject = f"New Grievance Submitted: {title}"
+def send_grievance_email(title, grievance, mood, severity, solution):
+    """Send email when grievance is submitted."""
+    subject = f"Grievance Submitted: {title}"
     body = f"""
-    A new grievance has been submitted on the Boyfriend Grievance Portal.
+    💌 A new grievance has been submitted:
 
     Title: {title}
     What's bothering you: {grievance}
     Mood: {mood}
-    Severity & Suggested Solutions: {severity_solutions}
+    Severity (1-10): {severity}
+    Suggested Solution: {solution}
     """
 
     message = MIMEMultipart()
@@ -40,37 +41,36 @@ def send_grievance_email(title, grievance, mood, severity_solutions):
     message.attach(MIMEText(body, "plain"))
 
     try:
-        # Using SMTP_SSL for security on port 465
         server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
         server.login(SENDER_EMAIL, SENDER_PASSWORD)
         server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, message.as_string())
         server.quit()
     except Exception as e:
-        st.warning(f"Email notification failed: {e}")
+        st.warning(f"Failed to send email: {e}")
 
 # =============================
-# CUSTOM CSS FOR ROMANTIC, PASTEL DESIGN
+# Custom CSS (Contrast & Style)
 # =============================
 st.markdown("""
     <style>
     .stApp {
         background-color: #fff0f5;
     }
-    h1, h2, h3 {
-        color: #cc3366;
+    h1, h3 {
+        color: #cc0066;
         font-family: 'Georgia', serif;
     }
-    label, .css-1cpxqw2, .stTextInput>div>div>input {
+    label, .stTextInput>div>div>input {
         color: #800040;
         font-family: 'Georgia', serif;
     }
     .stTextArea>div>textarea {
-        background-color: #ffe6f0 !important;
-        color: #800040;
+        background-color: #fff8fc;
+        color: #4a0033;
         font-family: 'Georgia', serif;
     }
     .stButton>button {
-        background-color: #ff66a3 !important;
+        background-color: #ff3385 !important;
         color: white;
         border-radius: 12px;
         padding: 10px 20px;
@@ -78,24 +78,25 @@ st.markdown("""
         font-weight: bold;
     }
     .confirmation-box {
-        background-color: #ffd6e7;
+        background-color: #d1ffe6;
         padding: 20px;
         border-radius: 10px;
-        border: 2px solid #ff80bf;
+        border: 2px solid #00cc88;
         text-align: center;
         margin-top: 20px;
+        color: #006644;
     }
     </style>
 """, unsafe_allow_html=True)
 
 # =============================
-# INITIALIZE SESSION STATE
+# Session Initialization
 # =============================
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
 # =============================
-# LOGIN PAGE
+# Login Page
 # =============================
 def login_page():
     st.title("💕 Boyfriend Grievance Portal - Login")
@@ -104,49 +105,42 @@ def login_page():
     if st.button("Login"):
         if username == CORRECT_USERNAME and password == CORRECT_PASSWORD:
             st.session_state.logged_in = True
-            st.success("Login successful! Welcome, sadiyah!")
-        
+            st.success("Welcome back, Sadiyah 💖")
         else:
-            st.error("Invalid username or password. Please try again.")
+            st.error("Wrong username or password 😢")
 
 # =============================
-# GRIEVANCE FORM PAGE
+# Grievance Form Page
 # =============================
 def grievance_form():
     st.title("💌 Express Your Heart")
-    
-    # Form fields
+
     title = st.text_input("Title")
     grievance = st.text_area("What's bothering you?")
     mood = st.selectbox("Mood", ["Happy 😊", "Sad 😢", "Angry 😡", "Disappointed 😞", "Confused 🤔"])
     severity = st.slider("How serious is it?", 1, 10)
-    solutions = st.selectbox("Chocolates", "Chicken Strips", "Corner House", "Mcd", "WhiteHouse")
+    solution = st.selectbox("What might make it better?", ["Chocolates 🍫", "Chicken Strips 🍗", "Corner House 🍨", "McD 🍔", "WhiteHouse 🏠"])
 
-    
     if st.button("Submit Grievance"):
-        if title and grievance and mood and severity_solutions:
-            st.markdown("""
+        if title and grievance:
+            st.markdown(f"""
                 <div class="confirmation-box">
-                    <h3>Your grievance has been submitted 💖</h3>
-                    <p>Aamir will reach out to you soon 💌✨</p>
+                    <h3>💗 Your grievance has been submitted!</h3>
+                    <p>Aamir will respond soon with love and care 💌✨</p>
                 </div>
-                """, unsafe_allow_html=True)
-            # Send email notification with the grievance details
-            send_grievance_email(title, grievance, mood, severity_solutions)
+            """, unsafe_allow_html=True)
+            send_grievance_email(title, grievance, mood, severity, solution)
         else:
-            st.warning("Please fill out all the fields.")
-    
+            st.warning("Please complete all the fields 🙏")
+
     if st.button("Logout"):
         st.session_state.logged_in = False
         st.experimental_rerun()
 
 # =============================
-# MAIN APP LOGIC
+# Main App Logic
 # =============================
 def main():
-    if "logged_in" not in st.session_state:
-        st.session_state.logged_in = False
-
     if st.session_state.logged_in:
         grievance_form()
     else:
