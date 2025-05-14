@@ -144,9 +144,10 @@ def grievance_form():
 # MAIN APP LOGIC
 # =============================
 def main():
-    if
-    st.session_state.get("logged_in",
-     False):                    
+    if "logged_in" not in st.session_state:
+        st.session_state.logged_in = False
+
+    if st.session_state.logged_in:
         grievance_form()
     else:
         login_page()
