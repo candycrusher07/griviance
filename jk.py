@@ -82,7 +82,7 @@ label, .css-1cpxqw2, .css-1d391kg {
 }
 
 /* Text area customization (for "What's bothering you?") */
-.stTextArea > div > textarea {
+st.text_area > div > textarea {
     background-color: #fce4ec !important;  /* Soft pink */
     color: #880e4f !important;             /* Deep rose text */
     border: 2px solid #f06292 !important;  /* Pink border */
