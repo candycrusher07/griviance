@@ -98,7 +98,7 @@ label, .css-1cpxqw2, .css-1d391kg {
     border-radius: 10px;
     font-family: 'Georgia', serif;
 }
-</style>
+
 
 
     /* Button styling */
