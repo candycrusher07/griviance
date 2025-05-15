@@ -63,7 +63,7 @@ st.markdown("""
 
     /* Text input */
     .stTextInput > div > div > input {
-        background-color: #800040 !important;
+        background-color: #ffe6f0!important;
         color: #800040 !important;
         font-family: 'Georgia', serif !important;
         border: 2px solid #ff99cc;
